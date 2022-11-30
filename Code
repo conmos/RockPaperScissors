@@ -8,14 +8,16 @@ def play():
   computer = random.choice(['r','p','s'])
 
   #set conditions for tie 
-  if user == computer: 
-    print("It\'s a tie!")
-  
+  #if user == computer: 
+   # print("It\'s a tie!")
+    
 # set winning response 
-  if is_win(user, computer): 
+  if is_win(user, computer) == True: 
     return 'You won!'
-  else: 
+  elif is_win(user, computer) == False: 
     return 'You lost!'
+  else: 
+    return "You tied!"
 
 
 #set conditions for winning 
@@ -23,5 +25,8 @@ def is_win(player, opponent):
   #return true if player wins
   if (player == 'r' and opponent == 's') or (player == 'p' and opponent == 'r') or (player == 's' and opponent == 'p'): 
     return True 
-
+  elif(player == 's' and opponent == 'r') or (player == 'r' and opponent =='p') or (player == 'p' and opponent == 's'): 
+    return False 
+    
 print(play())
+
